@@ -1,0 +1,103 @@
+{
+  "name": "@hupu/rc-basic",
+  "version": "0.0.20",
+  "description": "",
+  "main": "lib/components/index.js",
+  "module": "es/components/index.js",
+  "typings": "lib/components/index.d.ts",
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "release": "npm run build:branch release && npm run build:version",
+    "tpl": "./build/template.sh",
+    "lint": "eslint src/ --ext .ts --ext .tsx",
+    "lint:fix": "eslint src/ --ext .ts --ext .tsx --fix",
+    "test:jest": "jest",
+    "update:snapshot": "jest --updateSnapshot"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "functional"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run lint && npm run test:jest",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
+  "author": "hupu-frontend",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/cli": "^8.1.0",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-info": "^5.1.9",
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addon-notes": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "5.1.9",
+    "@types/classnames": "^2.2.9",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.15",
+    "@types/jsonp": "^0.2.0",
+    "@types/lodash": "^4.14.136",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-transition-group": "^4.2.2",
+    "@types/storybook-readme": "^5.0.3",
+    "@types/storybook__addon-knobs": "^5.0.3",
+    "@types/storybook__react": "^4.0.2",
+    "@types/styled-jsx": "^2.2.8",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "chalk": "^2.4.2",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "del": "^5.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "jsonp": "^0.2.1",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.2.1",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "storybook-readme": "^5.0.5",
+    "style-loader": "^1.0.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "fe-supervisor": "^0.1.14",
+    "lodash": "^4.17.15",
+    "peeler-js": "^0.2.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-transition-group": "^4.2.2"
+  }
+}
